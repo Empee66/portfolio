@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Federant&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Smooch+Sans:wght@100..900&display=swap');
+
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+nav{
+    display: flex;
+    justify-content:space-between ;
+    margin-left: 20vh;
+    margin-right: 20vh;
+    height: 10vh;
+    color: rgb(13, 109, 199);
+    align-items: center;
+}
+
+p{
+    font-size: 30px;
+    font-weight: 200;
+}
+ul{
+    display: flex;
+    gap: 30px;
+}
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96c93d);
+    background-size: 400%;
+    animation: gradient 5s ease infinite;
+    z-index: -1;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .background {
+        animation: none;
+        background: #45b7d1;
+    }
+}
+
+#particle-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: #000116; 
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    color: rgb(13, 109, 199);
+    text-align: center;
+    padding: 50px;
+}
+
+
+.my-button{
+    font-family: Comfortaa;
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: rgb(13, 109, 199);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.4s linear, color 0.4s linear;
+}
+
+.my-button:hover{
+    background-color: rgb(7, 196, 230);
+    color: #fff5f5; 
+}
+
+a{
+    text-decoration: none;
+}
+.typewriter{
+    font-size: 2em;
+    color: rgb(13, 109, 199);
+}
+.typewriter::after{
+    content: "...";
+    animation: blink 0.9s infinite;
+    
+}
+@keyframes blink{
+    50% { opacity: 0;}
+}
+#den{
+    display: none;
+    
+}
+h2{
+    font-size: 2.5em;
+            font-weight: bold;
+            background:  linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+}
+h4{
+    font-size: 1.7em;
+}
+.my-btn{
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(45deg, #2008a5, #16645f);
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s;
+    text-align: center;
+    margin-top: 20px;
+}
+.my-btn:hover{
+    background: linear-gradient(45deg, #2008a5, #31a098);
+    transform: scale(1.05);
+}
+.my-btn:active{
+    transform:  scale (0.95);
+}
