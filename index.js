@@ -54,19 +54,19 @@ window.addEventListener('resize', () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 });
- // Extract text from the h1 element and split into words
+
  const denElement = document.getElementById('den');
  const words = denElement ? denElement.textContent.trim().split(/\s+/) : [];
  let wordIndex = 0;
  let charIndex = 0;
  let isDeleting = false;
  const typewriterElement = document.getElementById('typewriter');
- const typingSpeed = 100; // ms per character
- const erasingSpeed = 50; // ms per character
- const pauseBetween = 1000; // ms pause before erasing/after typing
+ const typingSpeed = 100; 
+ const erasingSpeed = 50; 
+ const pauseBetween = 1000; 
 
  function typeEffect() {
-     // Check if words array is valid and not empty
+    
      if (!words || words.length === 0) {
          console.error('No words found in the h1 element');
          if (typewriterElement) {
@@ -75,31 +75,33 @@ window.addEventListener('resize', () => {
          return;
      }
 
-     // Ensure wordIndex stays within bounds
      wordIndex = wordIndex % words.length;
      const currentWord = words[wordIndex];
 
      if (!isDeleting && charIndex <= currentWord.length) {
-         // Typing
+        
          typewriterElement.textContent = currentWord.substring(0, charIndex);
          charIndex++;
          setTimeout(typeEffect, typingSpeed);
      } else if (isDeleting && charIndex >= 0) {
-         // Erasing
+        
          typewriterElement.textContent = currentWord.substring(0, charIndex);
          charIndex--;
          setTimeout(typeEffect, erasingSpeed);
      } else {
-         // Switch between typing/erasing or move to next word
+         
+        
          isDeleting = !isDeleting;
          if (!isDeleting) {
-             wordIndex = (wordIndex + 1) % words.length; // Move to next word
+             wordIndex = (wordIndex + 1) % words.length; 
+             
          }
          setTimeout(typeEffect, pauseBetween);
      }
  }
 
- // Start the effect only if both elements exist
+
+ 
  if (denElement && typewriterElement) {
      typeEffect();
  } else {

@@ -5,14 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Portfolio</title>
     <link rel="stylesheet" href="index.css" />
+    <link rel="icon" href="port.png">
   </head>
   <body>
     <nav>
-        <div> <p>™GHOST<P></div>
+        <div> <p id="logo">™GHOST<P></div>
         <ul> 
-            <button class="my-button"> Contact</button>
-             <button class="my-button"> Services</button>
-             <button class="my-button"> My Projects </button>
+            <a href="contact.html" class="my-btn"> Get In Touch</a>
+            <a href="" class="my-btn"> Services </a>
+             <a href="" class="my-btn"> My Projects</a>
         </ul>
     </nav>
     <canvas id="particle-canvas"></canvas>
@@ -24,7 +25,9 @@
       <h4>Welcome to my portfolio! Check out my projects above.</h4>
       <a href="My Resume.docx" Download class="my-btn">My Résumé</a>
     </div>
-
+    <footer>
+      <p>&copy;GHOST <span id="year"></span> 2025</p>
+    </footer>
     <script src="index.js"></script>
   </body>
 </html>
