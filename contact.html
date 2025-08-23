@@ -31,7 +31,46 @@
         </form>
        
     </div>
-   
+   <script>document.addEventListener('DOMContentLoaded', () => {
+    const form = document.querySelector('.contact-form');
+    const botToken = '8348079990:AAFP17VB0QFPa1WE7J9rLKOYvWIcf8sVLtU'; // Replace with your bot token from BotFather
+    const chatId = '7957772563'; // Replace with your chat ID (e.g., your Telegram user ID)
+
+    form.addEventListener('submit', async (event) => {
+        event.preventDefault(); // Prevent default form submission
+
+        // Get form data
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+
+        // Format the message for Telegram
+        const telegramMessage = `New Contact Form Submission:\nName: ${name}\nEmail: ${email}\nMessage: ${message}`;
+
+        try {
+            const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    chat_id: chatId,
+                    text: telegramMessage
+                })
+            });
+
+            if (response.ok) {
+                alert('Message sent successfully!');
+                form.reset(); // Clear the form
+            } else {
+                alert('Failed to send message. Please try again.');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('An error occurred. Please check the console for details.');
+        }
+    });
+});</script>
     <script src="index.js"></script>
 </body>
 </html>
