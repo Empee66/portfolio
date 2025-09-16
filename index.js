@@ -107,3 +107,35 @@ window.addEventListener('resize', () => {
  } else {
      console.error('Required elements (den or typewriter) not found');
  }
+ // server.js
+const express = require('express');
+const axios = require('axios');
+const cors = require('cors');
+const app = express();
+
+app.use(cors()); // Allow requests from your frontend
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.post('/submit-contact', async (req, res) => {
+  const { name, email, message, 'g-recaptcha-response': recaptchaToken } = req.body;
+  try {
+    const response = await axios.post('https://www.google.com/recaptcha/api/siteverify', null, {
+      params: {
+        secret: 'YOUR_RECAPTCHA_SECRET_KEY', // Replace with your Secret Key
+        response: recaptchaToken
+      }
+    });
+    if (response.data.success) {
+      // Process form data (e.g., log, save to database, send to Telegram)
+      console.log('Form data:', { name, email, message });
+      res.json({ success: true, message: 'Form submitted successfully!' });
+    } else {
+      res.status(400).json({ success: false, message: 'reCAPTCHA verification failed.' });
+    }
+  } catch (error) {
+    res.status(500).json({ success: false, message: 'Server error.' });
+  }
+});
+
+app.listen(3000, () => console.log('Server running on port 3000'));

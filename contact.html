@@ -6,14 +6,15 @@
     <link rel="stylesheet" href="index.css">
     <link rel="icon" href="port.png">
     <title>  Get In Touch </title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
     <nav class="contact-nav">
         <div> <p id="logo">™GHOST<P></div>
         <ul> 
             <a href="index.html" class="my-btn"> Home</a>
-            <a href="" class="my-btn"> Services </a>
-             <a href="" class="my-btn"> My Projects</a>
+            <a href="services.html" class="my-btn"> Services </a>
+             <a href="projects.html" class="my-btn"> My Projects</a>
         </ul>
     </nav>
     <canvas id="particle-canvas"></canvas>
@@ -28,6 +29,7 @@
             <label for="message">Message</label>
             <textarea id="message" name="message" rows="5" required></textarea>
             <button type="submit">Send Message</button>
+            <div class="g-recaptcha" data-sitekey="6Ld0ccgrAAAAAFSUjhQfQmhtD99Uy5v04yR93c1D"></div>
         </form>
        
     </div>
@@ -72,5 +74,6 @@
     });
 });</script>
     <script src="index.js"></script>
+    
 </body>
 </html>

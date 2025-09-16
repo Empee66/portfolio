@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" href="port.png">
+    <title>My Projects</title>
+</head>
+
+<body>
+    <canvas id="particle-canvas"></canvas>
+    <div class="nav">
+        <nav class="home-nav">
+            <div>
+                <p id="logo">™GHOST
+                <P>
+            </div>
+            <ul>
+                <a href="index.html" class="my-btn"> Home</a>
+                <a href="contact.html" class="my-btn"> Get In Touch</a>
+                <a href="services.html" class="my-btn"> Services </a>
+               
+            </ul>
+        </nav>
+    </div>
+    
+    
+    <div class="projects">
+        <h3> My Projects</h3>
+        <p id="project-introduction"> Explore some of my amazing projects. <br>
+        Each project highlights my expertise and creativity.</p>
+    </div>
+    <div class="container-for-tab">
+        <div class="tab-list">
+            <div class="tab" onclick="showContent('tab1')">
+                Full Projects
+        
+            </div>
+            <div class="tab2" onclick="showContent('tab2')">
+                Side Projects
+                
+            </div>
+        </div>
+        <div id="tab1" class="tab-content">
+            <div class="fullprojects-main">
+                <div class="fullprojects-containers">
+                      
+                </div>
+                <div class="fullprojects-containers">
+                    
+                </div>
+                <div class="fullprojects-containers">
+                   
+                    
+                </div>
+            </div>
+            
+            
+        </div>
+        <div id="tab2" class="tab-content">
+            <div class="fullprojects-main">
+                <div class="fullprojects-containers">
+                        <img src="url.png" alt="" class="url-project">
+                      <div id="view"><a href="https://empee66.github.io/MaliciousURLdetector/" class="view"> Click To View</a></div>  
+                </div>
+                <div class="fullprojects-containers">
+                    <img src="moviesearch.png" alt="" class="url-project">
+                    <div id="view"><a href="" class="view"> Click To View</a></div>  
+                </div>
+                <div class="fullprojects-containers">
+                    
+                    
+                </div>
+            </div>
+           
+        </div>
+       
+    </div>
+
+    <script>
+        function showContent(tabId) {
+            document.querySelectorAll('.tab, .tab2').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            document.querySelector(`[onclick="showContent('${tabId}')"]`).classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+        }
+        
+        showContent('tab1'); // Only this call should remain
+    </script>
+<script src="index.js"></script>
+</body>
+</html>
